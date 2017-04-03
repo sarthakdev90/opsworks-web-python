@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 node[:deploy].each do |application, deploy|
+  Chef::Log.info "Application is #{application}"
+  Chef::Log.info "Custom type is #{deploy["custom_type"]}"
   if deploy["custom_type"] != 'python'
     next
   end
