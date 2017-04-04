@@ -49,28 +49,38 @@ define :opsworks_custom_deploy do
   # setup deployment & checkout
   if deploy[:scm] && deploy[:scm][:scm_type] != 'other'
     Chef::Log.debug("Checking out source code of application #{application} with type #{deploy[:application_type]}")
-    deploy deploy[:deploy_to] do
-      provider Chef::Provider::Deploy.const_get(deploy[:chef_provider])
-      # if deploy[:keep_releases]
-      #   keep_releases deploy[:keep_releases]
-      # end
+
+    git 'django-admin' do
       repository deploy[:scm][:repository]
       user deploy[:user]
       group deploy[:group]
       revision deploy[:scm][:revision]
-      #migrate deploy[:migrate]
-      #migration_command deploy[:migrate_command]
-      environment deploy[:environment].to_hash
-      #symlink_before_migrate({})
-      #action deploy[:action]
+      destination '/tmp/chef-code'
+      action :checkout
+    end
 
-      # if node[:opsworks][:instance][:hostname].include?("-app-")
-      #   restart_command "sleep #{deploy[:sleep_before_restart]} && sudo /etc/init.d/nginx restart"
-      # end
+    # deploy deploy[:deploy_to] do
+    #   provider Chef::Provider::Deploy.const_get(deploy[:chef_provider])
+    #   # if deploy[:keep_releases]
+    #   #   keep_releases deploy[:keep_releases]
+    #   # end
+    #   repository deploy[:scm][:repository]
+    #   user deploy[:user]
+    #   group deploy[:group]
+    #   revision deploy[:scm][:revision]
+    #   #migrate deploy[:migrate]
+    #   #migration_command deploy[:migrate_command]
+    #   environment deploy[:environment].to_hash
+    #   #symlink_before_migrate({})
+    #   #action deploy[:action]
 
-      scm_provider :git
-      enable_submodules deploy[:enable_submodules]
-      shallow_clone deploy[:shallow_clone]
+    #   # if node[:opsworks][:instance][:hostname].include?("-app-")
+    #   #   restart_command "sleep #{deploy[:sleep_before_restart]} && sudo /etc/init.d/nginx restart"
+    #   # end
+
+    #   scm_provider :git
+    #   enable_submodules deploy[:enable_submodules]
+    #   shallow_clone deploy[:shallow_clone]
       
       #Chef::Log.info "Core count of instance is  #{node[:core][:count]} " 
 
@@ -87,7 +97,7 @@ define :opsworks_custom_deploy do
     #     run_callback_from_file("#{release_path}/deploy/before_migrate.rb")
     #     #run_callback_from_file("#{release_path}/deploy/before_symlink.rb")
     #   end
-    end
+    # end
   end
 
   # ruby_block "change HOME back to /root after source checkout" do
