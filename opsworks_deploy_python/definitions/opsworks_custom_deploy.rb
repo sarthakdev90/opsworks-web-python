@@ -55,7 +55,7 @@ define :opsworks_custom_deploy do
       user deploy[:user]
       group deploy[:group]
       revision deploy[:scm][:revision]
-      destination '/tmp/chef-code'
+      destination '/tmp'
       action :checkout
     end
 
