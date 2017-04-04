@@ -62,7 +62,7 @@ define :opsworks_custom_deploy do
       #migration_command deploy[:migrate_command]
       environment deploy[:environment].to_hash
       #symlink_before_migrate({})
-      action deploy[:action]
+      #action deploy[:action]
 
       # if node[:opsworks][:instance][:hostname].include?("-app-")
       #   restart_command "sleep #{deploy[:sleep_before_restart]} && sudo /etc/init.d/nginx restart"
