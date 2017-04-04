@@ -58,10 +58,10 @@ define :opsworks_custom_deploy do
       user deploy[:user]
       group deploy[:group]
       revision deploy[:scm][:revision]
-      migrate deploy[:migrate]
-      migration_command deploy[:migrate_command]
+      #migrate deploy[:migrate]
+      #migration_command deploy[:migrate_command]
       environment deploy[:environment].to_hash
-      symlink_before_migrate({})
+      #symlink_before_migrate({})
       action deploy[:action]
 
       # if node[:opsworks][:instance][:hostname].include?("-app-")
@@ -72,7 +72,7 @@ define :opsworks_custom_deploy do
       enable_submodules deploy[:enable_submodules]
       shallow_clone deploy[:shallow_clone]
       
-      Chef::Log.info "Core count of instance is  #{node[:core][:count]} " 
+      #Chef::Log.info "Core count of instance is  #{node[:core][:count]} " 
 
     #   before_migrate do
     #     link_tempfiles_to_current_release
