@@ -10,6 +10,14 @@ cookbook "traceview", github: 'Optaros/tracelytics-chef', ref: 'e0f1b2bd7b729569
 cookbook 'newrelic_meetme_plugin', github: 'alecpm/newrelic_meetme_plugin'
 cookbook 's3fs-fuse', github: 'alecpm/s3fs-fuse'
 
+cookbook 'poise', gem: 'poise'
+cookbook 'application', gem: 'poise-application'
+cookbook 'application_git', gem: 'poise-application-git'
+cookbook 'application_python', gem: 'poise-application-python'
+#cookbook 'poise-archive', gem: 'poise-archive'
+cookbook 'poise-git', gem: 'poise-git'
+cookbook 'poise-python', gem: 'poise-python'
+
 # We want to be explicit, since we don't explicitly include our
 # packages, except when testing
 cookbook 'varnish', '0.9.12'
