@@ -2,6 +2,25 @@
 # Cookbook Name:: opsworks_deploy_python
 # Recipe:: default
 #
+
+include_recipe 'poise-python'
+include_recipe 'apt::default'
+include_recipe 'gunicorn'
+
+Chef::Log.info "Installing Pip"
+easy_install_package 'pip' do
+  module_name 'pip'
+  action :install
+end
+
+python_runtime '2'
+python_virtualenv '/.virtualenvs/test/'
+
+Chef::Log.info "Installing Django"
+python_package 'Django' do
+  version '1.8'
+end
+
 node[:deploy].each do |application, deploy|
   Chef::Log.info "Application is #{application}"
   Chef::Log.info "Custom type is #{deploy["custom_type"]}"
