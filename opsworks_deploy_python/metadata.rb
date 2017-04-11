@@ -8,6 +8,10 @@ version          "0.0.1"
 
 supports "ubuntu"
 
+gem "poise"
+gem "poise-python"
+gem "berkshelf"
+
 depends "deploy"
 depends "python"
 depends "gunicorn"
@@ -19,10 +23,6 @@ depends 'poise', '~> 2.0'
 depends 'poise-python'
 depends 'poise-archive', '~> 1.3'
 depends 'gunicorn', '~> 2.0.0'
-
-gem "poise"
-gem "poise-python"
-gem "berkshelf"
 
 # # depends 'application', '~> 5.0'
 # # depends 'application_git', '~> 1.0'
