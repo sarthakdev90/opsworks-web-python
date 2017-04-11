@@ -3,9 +3,9 @@
 # Recipe:: default
 #
 
-include_recipe 'poise-python'
-include_recipe 'apt::default'
-include_recipe 'gunicorn'
+# include_recipe 'poise-python'
+# include_recipe 'apt::default'
+# include_recipe 'gunicorn'
 
 node[:deploy].each do |application, deploy|
   Chef::Log.info "Application is #{application}"
@@ -24,19 +24,19 @@ node[:deploy].each do |application, deploy|
 #   end
 # node[:deploy].each do |application, deploy|
 
-  Chef::Log.info "Installing Pip"
-  easy_install_package 'pip' do
-    module_name 'pip'
-    action :install
-  end
+  # Chef::Log.info "Installing Pip"
+  # easy_install_package 'pip' do
+  #   module_name 'pip'
+  #   action :install
+  # end
 
-  python_runtime '2'
-  python_virtualenv '/.virtualenvs/test/'
+  # python_runtime '2'
+  # python_virtualenv '/.virtualenvs/test/'
 
-  Chef::Log.info "Installing Django"
-  python_package 'Django' do
-    version '1.8'
-  end
+  # Chef::Log.info "Installing Django"
+  # python_package 'Django' do
+  #   version '1.8'
+  # end
 
 
   opsworks_deploy_dir do
