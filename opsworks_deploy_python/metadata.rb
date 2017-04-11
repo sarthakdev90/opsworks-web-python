@@ -15,10 +15,14 @@ depends "supervisor"
 depends "scm_helper"
 depends "apt"
 depends "opsworks_initial_setup"
+depends 'poise', '~> 2.0'
+depends 'poise-python'
+depends 'poise-archive', '~> 1.3'
+depends 'gunicorn', '~> 2.0.0'
 
-# gem "poise"
-# gem "poise-python"
-# gem "berkshelf"
+gem "poise"
+gem "poise-python"
+gem "berkshelf"
 
 # # depends 'application', '~> 5.0'
 # # depends 'application_git', '~> 1.0'
