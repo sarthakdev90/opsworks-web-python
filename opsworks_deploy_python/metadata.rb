@@ -15,9 +15,9 @@ depends "supervisor"
 depends "scm_helper"
 depends "apt"
 depends "opsworks_initial_setup"
-depends 'poise'
+depends 'poise', '~> 2.0'
 depends 'poise-python'
-depends 'poise-archive'
+depends 'poise-archive', '~> 1.3'
 depends 'gunicorn'
 
 # # depends 'application', '~> 5.0'
