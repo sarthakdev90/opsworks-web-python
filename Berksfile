@@ -21,7 +21,7 @@ cookbook 'poise-python', gem: 'poise-python'
 # We want to be explicit, since we don't explicitly include our
 # packages, except when testing
 cookbook 'varnish', '0.9.12'
-cookbook 'gunicorn', '1.1.2'
+cookbook 'gunicorn', '2.0.0'
 cookbook 'build-essential', '1.4.2'
 cookbook 'apt', '2.7.0'
 cookbook 'yum', '3.1.2'
